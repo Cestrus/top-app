@@ -8,17 +8,21 @@ import { CreateReviewDto } from './dto/create-review.dto';
 export class ReviewService {
 	constructor(@InjectModel(ReviewModel.name) private readonly reviweModel: Model<ReviewDocument>) {}
 
-	async create(dto: CreateReviewDto): Promise<ReviewDocument> {
+	async create(dto: CreateReviewDto) {
 		const newReview = await this.reviweModel.create(dto);
 		newReview.save();
 		return newReview;
 	}
 
-	async delete(id: string): Promise<ReviewDocument | null> {
+	async deleteById(id: string) {
 		return await this.reviweModel.findOneAndDelete({ id }).exec();
 	}
 
-	async findByProdId(prodId: string): Promise<ReviewDocument[]> {
+	async deleteByProdId(prodId: string) {
+		return await this.reviweModel.deleteMany({ prodId }).exec();
+	}
+
+	async findByProdId(prodId: string) {
 		return await this.reviweModel.find({ product: prodId }).exec();
 	}
 }

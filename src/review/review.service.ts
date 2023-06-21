@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+
 import { ReviewDocument, ReviewModel } from './model/review.model';
 import { CreateReviewDto } from './dto/create-review.dto';
 
@@ -15,7 +16,7 @@ export class ReviewService {
 	}
 
 	async deleteById(id: string) {
-		return await this.reviweModel.findOneAndDelete({ id }).exec();
+		return await this.reviweModel.findOneAndDelete({ _id: id }).exec();
 	}
 
 	async deleteByProdId(prodId: string) {

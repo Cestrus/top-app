@@ -24,6 +24,6 @@ export class ReviewService {
 	}
 
 	async findByProdId(prodId: string) {
-		return await this.reviweModel.find({ product: prodId }).exec();
+		return await this.reviweModel.find({ prodId }).exec();
 	}
 }

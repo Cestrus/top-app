@@ -16,7 +16,7 @@ const testDto: CreateReviewDto = {
 	title: 'Title',
 	descrption: 'Description',
 	rating: 5,
-	product: prodId,
+	prodId: prodId,
 };
 
 const testLoginDto: AuthDto = {

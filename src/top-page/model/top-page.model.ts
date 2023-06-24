@@ -10,12 +10,12 @@ export enum TopLevelCategory {
 	Items,
 }
 
-class HhData {
+export class HhData {
 	@Prop()
 	count: number;
 
 	@Prop()
-	junoirSalary: number;
+	juniorSalary: number;
 
 	@Prop()
 	middleSalary: number;
@@ -24,7 +24,7 @@ class HhData {
 	seniorSalary: number;
 }
 
-class AdvantageData {
+export class AdvantageData {
 	@Prop()
 	title: string;
 
@@ -32,7 +32,7 @@ class AdvantageData {
 	description: string;
 }
 
-@Schema()
+@Schema({ timestamps: true })
 export class TopPageModel {
 	@Prop({ required: true, enum: TopLevelCategory })
 	firstCategory: TopLevelCategory;
